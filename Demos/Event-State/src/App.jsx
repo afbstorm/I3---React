@@ -18,6 +18,7 @@ function App() {
     console.log('Coucou');
   }
 
+  // A chaque changement de valeur dans le target de l'élément, on stocke la valeur dans le state valeurStockee
   const handleChange = (event) => {
     setValeurStockee(event.target.value)
     console.log(`Nouvelle valeur : ${valueStockee}`);

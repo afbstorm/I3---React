@@ -4,6 +4,9 @@ const Condition = (props) => {
 
     const { happy, movie, musics } = props;
 
+
+    // Déclaration de conditionnels, si movie est bien présent (à une valeur) et musics n'est pas présent, 
+    // on return un JSX qui va effectuer un rendu différent du rendu par défaut
     if (movie && !musics) {
         return (
             <>
@@ -12,7 +15,11 @@ const Condition = (props) => {
             </>
         )
     } 
+
+    // Déclaration de conditionnels, si movie et musics sont bien présents (et ont une valeur)
+    // on return un JSX qui va effectuer un rendu différent du rendu par défaut
     if (musics && movie) {
+        // Map du prop musics et pour chaque élément itéré nous allons afficher un <li> avec les informations de l'élément
         const musicList = musics.map(singer => (
             <li key={singer.id}>{singer.firstname} {singer.lastname} : {singer.musicType}</li>
         ))
@@ -30,6 +37,7 @@ const Condition = (props) => {
 
     return (
         <>
+        {/* Si happy return true alors on affiche un h3, si pas on affiche un autre */}
             {happy ? (
                 <h3> YAY Je suis happy </h3>
             ) : (

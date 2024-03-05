@@ -4,12 +4,16 @@ import Details from './components/Details';
 
 function App() {
 
-  const coursDesWad = 'React';
+  // Déclaration des variables qui vont contenir les informations a envoyer au composant enfant
+  const coursDesWad = 'React'; 
   const actorsTab = ['Zendaya', 'Thimothy Chalamet']
 
   return (
     <>
       <h2>Coucou hibou</h2>
+
+      {/* Appel des composants enfant et transfère de props => nomDuProp={valeurDuProp}
+      La valeur du prop peut être une valeur brute ou stockée dans une variable ou encore une fonction */}
       <User cours={coursDesWad}/>
       <Details 
         id={42}  
