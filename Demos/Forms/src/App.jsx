@@ -43,30 +43,36 @@ function App() {
   }
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="country">Indiquez votre pays </label>
-        {/* Appel de la fonction via une anonyme a qui l'on passe l'event, puis on appelle la fonction en lui 
-        onnant les deux paramètres */}
-        <select name="country" id="country" onChange={(e) => {handleChanges('country', e.target.value)}}>
-          {countries.map((country, index) => (
-            <option key={index} value={country}>{country}</option>
-          ))}
-        </select>
+    <section className='container'>
+      <form onSubmit={handleSubmit} className='form-container'>
+        <div className='form-input'>
+          <label htmlFor="country">Indiquez votre pays </label>
+          {/* Appel de la fonction via une anonyme a qui l'on passe l'event, puis on appelle la fonction en lui 
+          onnant les deux paramètres */}
+          <select name="country" id="country" onChange={(e) => {handleChanges('country', e.target.value)}}>
+            {countries.map((country, index) => (
+              <option key={index} value={country}>{country}</option>
+            ))}
+          </select>
+        </div>
 
-        <label htmlFor="email">Email : </label>
-        {/* Appel de la fonction */}
-        <input type="text" name="email" id="email" value={formValues.email} onChange={handleChanges2}/>
-
-        <label htmlFor="lastname">Lastname : </label>
-        <input type="text" name="lastname" id="lastname" value={formValues.lastname} onChange={handleChanges2}/>
-
-        <label htmlFor="adult">Are you over 18 ? </label>
-        <input type="checkbox" name="adult" id="adult" checked={formValues.adult} onChange={handleChanges2}/>
-
-        <label htmlFor="age">How old are you ? </label>
-        <input type="number" name="age" id="age" value={formValues.age} onChange={handleChanges2}/>
-
+        <div className='form-input'>
+          <label htmlFor="email">Email : </label>
+          {/* Appel de la fonction */}
+          <input type="text" name="email" id="email" value={formValues.email} onChange={handleChanges2}/>
+        </div>
+        <div className='form-input'>
+          <label htmlFor="lastname">Lastname : </label>
+          <input type="text" name="lastname" id="lastname" value={formValues.lastname} onChange={handleChanges2}/>
+        </div>
+        <div className='form-input'>
+          <label htmlFor="adult">Are you over 18 ? </label>
+          <input className='form-checkbox' type="checkbox" name="adult" id="adult" checked={formValues.adult} onChange={handleChanges2}/>
+        </div>
+        <div className='form-input'>
+          <label htmlFor="age">How old are you ? </label>
+          <input type="number" name="age" id="age" value={formValues.age} onChange={handleChanges2}/>
+        </div>
         <button type="submit">Envoyer</button>
       </form>
     </section>
