@@ -20,13 +20,18 @@ const Form = (props) => {
     const handleChanges = (event) => {
         const { name, value } = event.target;
 
+        // Mettre à jour l'état de taskValues avec les nouvelles valeurs
+        // Les valeurs précédentes sont préservées en utilisant l'opérateur de spread
+        // (...prevValues), puis la valeur de l'attribut modifié est mise à jour
         setTaskValues((prevValues) => ({...prevValues, [name]: value}));
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Utilisation du callback pour envoyer les infos
+        // Ajoute la nouvelle tâche à la liste des tâches en utilisant la fonction addTask
+        // Les précédentes tâches sont préservées en utilisant l'opérateur spread et ensuite la nouvelle tâche est ajoutée
+        // gràce au callback addTask
         addTask((prevValues) => ([...prevValues, taskValues]));
 
         // Reset du formulaire
