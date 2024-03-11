@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import FormButton from './FormButton';
 
 const List = (props) => {
 
@@ -13,7 +14,7 @@ const List = (props) => {
         addTask(updatedTaskList);
     };
 
-    const handleCompelete = (event, id) => {
+    const handleComplete = (event, id) => {
         event.preventDefault();
         
         const updatedTaskList = taskList.map(task => {
@@ -36,8 +37,8 @@ const List = (props) => {
                         {task.priority === 'High' ? 
                         (<h5 style={{color: 'red'}}>{task.priority}</h5>) :
                         null}
-                    <button onClick={(e) => handleCompelete(e, task.id)}>Complete</button>
-                    <button onClick={(e) => handleDelete(e, task.id)}>Delete</button>
+                    <FormButton Bname={'Complete'} taskId={task.id} handleButton={handleComplete} />
+                    <FormButton Bname={'Delete'} taskId={task.id} handleButton={handleDelete} />
                 </div>
             ))}
         </section>
